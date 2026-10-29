@@ -1,0 +1,122 @@
+[
+  {
+    "nome": "Sabor & Democracia Marmitas",
+    "categoria": "Alimentação & Bebidas",
+    "cidade": "Belém",
+    "estado": "PA",
+    "bairro": "Marco",
+    "descricao": "Almoço caseiro, opções vegetarianas e sucos naturais com entrega rápida no centro e bairros vizinhos.",
+    "whatsapp": "91981112233",
+    "instagram": "saboredemocracia",
+    "catalogo": "https://cardapio.saboredemocracia.com",
+    "temEntrega": true
+  },
+  {
+    "nome": "Ateliê Ponto Solidário",
+    "categoria": "Vestuário & Costura",
+    "cidade": "Ananindeua",
+    "estado": "PA",
+    "bairro": "Cidade Nova",
+    "descricao": "Consertos, ajustes de roupas, confecção de peças sob encomenda e artigos em tecido.",
+    "whatsapp": "91982223344",
+    "instagram": "atelieponto_solidario",
+    "catalogo": "",
+    "temEntrega": false
+  },
+  {
+    "nome": "Hortifrúti Raízes do Campo",
+    "categoria": "Mercado & Hortifrúti",
+    "cidade": "Marituba",
+    "estado": "PA",
+    "bairro": "Decouville",
+    "descricao": "Cestas de frutas, verduras frescas da agricultura local e grãos embalados com entrega agendada.",
+    "whatsapp": "91983334455",
+    "instagram": "hortifruti_raizes",
+    "catalogo": "https://raizesdocampo.loja.br",
+    "temEntrega": true
+  },
+  {
+    "nome": "Oficina Mecânica São Jorge",
+    "categoria": "Serviços Técnicos",
+    "cidade": "Belém",
+    "estado": "PA",
+    "bairro": "Guamá",
+    "descricao": "Manutenção preventiva, elétrica automotiva e socorro mecânico para trabalhadores e frotistas.",
+    "whatsapp": "91984445566",
+    "instagram": "oficinasaojorge_belem",
+    "catalogo": "",
+    "temEntrega": false
+  },
+  {
+    "nome": "Livraria & Papelaria Voz Ativa",
+    "categoria": "Livros & Papelaria",
+    "cidade": "Castanhal",
+    "estado": "PA",
+    "bairro": "Centro",
+    "descricao": "Livros didáticos, literatura brasileira, materiais escolares e impressões com despacho postal ou local.",
+    "whatsapp": "91985556677",
+    "instagram": "livrariavozativa",
+    "catalogo": "https://livrariavozativa.com.br",
+    "temEntrega": true
+  },
+  {
+    "nome": "Espaço Estética Bem Viver",
+    "categoria": "Beleza & Cuidados",
+    "cidade": "Belém",
+    "estado": "PA",
+    "bairro": "Umarizal",
+    "descricao": "Cortes de cabelo, manicure, cuidados com a pele e venda de cosméticos fitoterápicos.",
+    "whatsapp": "91986667788",
+    "instagram": "esteticabemviver_pa",
+    "catalogo": "",
+    "temEntrega": false
+  },
+  {
+    "nome": "Padaria Pão Nosso de Cada Dia",
+    "categoria": "Alimentação & Bebidas",
+    "cidade": "Marituba",
+    "estado": "PA",
+    "bairro": "Almir Gabriel",
+    "descricao": "Pães artesanais, bolos caseiros, salgados fritos e assados com tele-entrega na região.",
+    "whatsapp": "91987778899",
+    "instagram": "padariapaonosso_marituba",
+    "catalogo": "",
+    "temEntrega": true
+  },
+  {
+    "nome": "Assistência Técnica InfoLivre",
+    "categoria": "Serviços Técnicos",
+    "cidade": "Ananindeua",
+    "estado": "PA",
+    "bairro": "Coqueiro",
+    "descricao": "Reparo de notebooks, formatação, troca de telas de celulares e instalação de programas.",
+    "whatsapp": "91988889900",
+    "instagram": "infolivre_assistencia",
+    "catalogo": "https://infolivre.link",
+    "temEntrega": true
+  },
+  {
+    "nome": "Artesanatos da Terra Amazônica",
+    "categoria": "Vestuário & Costura",
+    "cidade": "Belém",
+    "estado": "PA",
+    "bairro": "Campina",
+    "descricao": "Biojoias, cerâmicas marajoaras, bolsas ecológicas e peças decorativas em madeira reaproveitada.",
+    "whatsapp": "91989990011",
+    "instagram": "artesanatosdaterra_pa",
+    "catalogo": "https://artesanatosdaterra.com",
+    "temEntrega": false
+  },
+  {
+    "nome": "Pet Shop Amigo Fiel",
+    "categoria": "Pet & Veterinária",
+    "cidade": "Castanhal",
+    "estado": "PA",
+    "bairro": "Ianetama",
+    "descricao": "Rações a granel, medicamentos básicos, banho e tosa e entrega rápida em domicílio.",
+    "whatsapp": "91980001122",
+    "instagram": "petamigofiel_castanhal",
+    "catalogo": "",
+    "temEntrega": true
+  }
+]
