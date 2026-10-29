@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rede de Apoio e Comércio Seguro</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .badge-tag {
+      transition: all 0.2s ease-in-out;
+    }
+    .badge-tag:hover {
+      transform: translateY(-2px);
+    }
+    .card-item {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans">
+
+  <!-- Cabeçalho -->
+  <header class="bg-slate-900 text-white border-b border-rose-600/40 sticky top-0 z-40 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="p-2.5 bg-rose-600/20 text-rose-500 rounded-xl border border-rose-500/30">
+          <i class="fa-solid fa-shield-heart text-2xl"></i>
+        </span>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight">Comércio Seguro</h1>
+          <p class="text-xs text-slate-400">Rede de solidariedade, apoio mútuo e consumo consciente</p>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+        <!-- Botão Gerenciar Planilha / JSON -->
+        <button onclick="toggleModalData()" 
+                class="px-3.5 py-2.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-2 transition-colors">
+          <i class="fa-solid fa-table-list text-rose-400"></i>
+          <span>Gerenciar Dados</span>
+        </button>
+
+        <!-- Botão SOS / Emergência -->
+        <a href="https://wa.me/5591980361195?text=Ol%C3%A1%2C%20preciso%20de%20apoio%20urgente%20em%20situa%C3%A7%C3%A3o%20de%20vulnerabilidade." 
+           target="_blank" 
+           class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-colors shadow-sm">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Canal de Emergência (24h)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner Informativo / LGPD -->
+  <section class="bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-user-shield text-slate-600 text-xl mt-1"></i>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <strong class="text-slate-800">Privacidade e Proteção:</strong> Os comércios aqui listados autorizaram voluntariamente sua exibição. Em conformidade com a LGPD e por medidas estritas de segurança preventiva, <strong>endereços físicos não são divulgados</strong> publicamente.
+          </p>
+        </div>
+        <div class="text-xs text-slate-500 bg-white px-3 py-1.5 rounded-md border border-slate-200 font-mono shrink-0">
+          Atualizado em até 24h úteis
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Busca e Filtros -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8 space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3.5">
+        
+        <!-- Campo de Busca por Texto -->
+        <div class="sm:col-span-2 lg:col-span-4 relative">
+          <label for="searchInput" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Pesquisar por nome ou produto</label>
+          <div class="relative">
+            <input type="text" id="searchInput" placeholder="Ex: Café, Costura, Mercado..." 
+                   class="w-full pl-9 pr-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-xs sm:text-sm" />
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-3.5 text-slate-400 text-xs"></i>
+          </div>
+        </div>
+
+        <!-- Filtro: Estado (UF) -->
+        <div class="lg:col-span-2">
+          <label for="ufFilter" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Estado (UF)</label>
+          <select id="ufFilter" class="w-full py-2.5 px-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-xs sm:text-sm bg-white">
+            <option value="">Todos os Estados</option>
+          </select>
+        </div>
+
+        <!-- Filtro: Cidade -->
+        <div class="lg:col-span-2">
+          <label for="cityFilter" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Cidade</label>
+          <select id="cityFilter" class="w-full py-2.5 px-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-xs sm:text-sm bg-white">
+            <option value="">Todas as Cidades</option>
+          </select>
+        </div>
+
+        <!-- Filtro: Bairro -->
+        <div class="lg:col-span-2">
+          <label for="bairroFilter" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Bairro</label>
+          <select id="bairroFilter" class="w-full py-2.5 px-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-xs sm:text-sm bg-white">
+            <option value="">Todos os Bairros</option>
+          </select>
+        </div>
+
+        <!-- Filtro: Categoria -->
+        <div class="lg:col-span-2">
+          <label for="categoryFilter" class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Categoria</label>
+          <select id="categoryFilter" class="w-full py-2.5 px-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-xs sm:text-sm bg-white">
+            <option value="">Todas as Categorias</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Barra de Estatísticas da Busca e Opções Adicionais -->
+      <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">
+        <div class="flex items-center gap-3">
+          <span id="resultsCount">Carregando catálogo...</span>
+          <span class="text-slate-300">|</span>
+          <label class="inline-flex items-center gap-1.5 cursor-pointer font-medium text-slate-700">
+            <input type="checkbox" id="deliveryFilter" class="rounded text-rose-600 focus:ring-rose-500 h-3.5 w-3.5">
+            <span>Apenas com Entrega / Delivery</span>
+          </label>
+        </div>
+        <button id="resetFilters" class="text-rose-600 hover:underline font-medium hidden">
+          <i class="fa-solid fa-arrow-rotate-left mr-1"></i> Limpar filtros
+        </button>
+      </div>
+    </div>
+
+    <!-- Grid de Resultados -->
+    <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Injetado dinamicamente via JS -->
+    </div>
+
+    <!-- Estado Vazio -->
+    <div id="emptyState" class="hidden text-center py-16 bg-white rounded-2xl border border-dashed border-slate-300 p-8">
+      <i class="fa-solid fa-store-slash text-4xl text-slate-300 mb-3"></i>
+      <h3 class="text-base font-semibold text-slate-700">Nenhum estabelecimento encontrado</h3>
+      <p class="text-sm text-slate-500 mt-1">Tente ajustar os filtros ou pesquisar com outro termo.</p>
+    </div>
+  </main>
+
+  <!-- Modal do Gerenciador de Dados -->
+  <div id="dataModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200">
+      <div class="p-4 bg-slate-900 text-white flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-file-excel text-rose-400"></i>
+          <div>
+            <h3 class="text-sm font-bold">Gestão dos Dados da Planilha</h3>
+            <p class="text-[11px] text-slate-400">Cole os dados em formato JSON ou consulte os registros atuais</p>
+          </div>
+        </div>
+        <button onclick="toggleModalData()" class="text-slate-400 hover:text-white text-sm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-4 overflow-y-auto space-y-3 text-xs">
+        <p class="text-slate-600">
+          Você pode colar os dados exportados da sua planilha no campo abaixo. Ao salvar, a página atualiza os filtros de <strong>Estado</strong>, <strong>Cidade</strong>, <strong>Bairro</strong> e os cartões automaticamente.
+        </p>
+        <textarea id="jsonEditor" rows="11" class="w-full font-mono text-[11px] p-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:outline-none"></textarea>
+
+        <div class="flex items-center justify-between pt-2">
+          <button onclick="restaurarDadosOriginais()" class="text-rose-600 hover:underline font-semibold">
+            Restaurar dados.json Original
+          </button>
+          <div class="flex gap-2">
+            <button onclick="toggleModalData()" class="px-3 py-1.5 rounded-lg bg-slate-200 hover:bg-slate-300 font-semibold text-slate-700">
+              Fechar
+            </button>
+            <button onclick="salvarDadosModal()" class="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold">
+              Aplicar ao Catálogo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="bg-white border-t border-slate-200 mt-auto py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <p>&copy; 2026 Rede de Apoio Comércio Seguro. Todos os direitos reservados.</p>
+      <div class="flex items-center gap-4">
+        <span>Respaldo LGPD Art. 7º e 8º</span>
+        <a href="https://wa.me/5591980361195" target="_blank" class="hover:text-rose-600 transition-colors">Solicitar remoção imediata</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script da Aplicação -->
+  <script src="app.js"></script>
+</body>
+</html>
