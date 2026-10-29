@@ -219,39 +219,6 @@ function resetarTodosFiltros() {
   aplicarFiltros();
 }
 
-// Modal de Gerenciamento de Dados (JSON)
-function toggleModalData() {
-  const modal = document.getElementById('dataModal');
-  modal.classList.toggle('hidden');
-  if (!modal.classList.contains('hidden')) {
-    document.getElementById('jsonEditor').value = JSON.stringify(estabelecimentos, null, 2);
-  }
-}
-
-async function restaurarDadosOriginais() {
-  try {
-    const response = await fetch('dados.json');
-    const data = await response.json();
-    document.getElementById('jsonEditor').value = JSON.stringify(data, null, 2);
-  } catch (e) {
-    alert('Erro ao carregar dados.json');
-  }
-}
-
-function salvarDadosModal() {
-  try {
-    const parsed = JSON.parse(document.getElementById('jsonEditor').value);
-    if (!Array.isArray(parsed)) throw new Error("O formato deve ser uma lista []");
-    estabelecimentos = parsed;
-    popularEstados();
-    popularCategorias();
-    aplicarFiltros();
-    toggleModalData();
-  } catch (e) {
-    alert("Erro no JSON: " + e.message);
-  }
-}
-
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('searchInput').addEventListener('input', aplicarFiltros);
